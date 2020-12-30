@@ -3,6 +3,13 @@ const { Client } = require('discord.js');
 const { registerCommands, registerEvents } = require('./utils/registry');
 const config = require('../config.json');
 const client = new Client();
+const mongoose = require('mongoose');
+
+mongoose.connect(config.uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+mongoose.set('useCreateIndex', true);
 
 (async () => {
   client.commands = new Map();
