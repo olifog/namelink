@@ -11,5 +11,6 @@ module.exports = class GuildCreateEvent extends BaseEvent {
     const guildConfig = await GuildConfig.create({
       guildId: guild.id,
     });
+    client.guildcache.set()
   }
 }
