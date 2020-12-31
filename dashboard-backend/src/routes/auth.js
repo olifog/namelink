@@ -4,11 +4,15 @@ const passport = require('passport');
 router.get('/discord', passport.authenticate('discord'));
 
 router.get('/discord/redirect', passport.authenticate('discord'), (req, res) => {
-    res.send(200);
+    res.redirect('http://localhost:3000/menu');
 });
 
 router.get('/', (req, res) => {
-    res.send(req.user);
+    if (req.user) {
+        res.send(req.user);
+    } else {
+        res.sendStatus(401);
+    }
 });
 
 module.exports = router;
