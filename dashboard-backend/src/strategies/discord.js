@@ -32,7 +32,6 @@ passport.use(
                 connections,
             }, {new: true});
             if (findUser) {
-                console.log('User was found');
                 return done(null, findUser);
             } else {
                 const newUser = await User.create({
