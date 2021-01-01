@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 
 const GuildConfigSchema = new mongoose.Schema({
@@ -6,6 +5,14 @@ const GuildConfigSchema = new mongoose.Schema({
     type: mongoose.SchemaTypes.String,
     required: true,
     unique: true,
+  },
+  name: {
+    type: mongoose.SchemaTypes.String,
+    required: true,
+  },
+  icon: {
+    type: mongoose.SchemaTypes.String,
+    required: true,
   },
   prefix: {
     type: mongoose.SchemaTypes.String,

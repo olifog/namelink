@@ -1,6 +1,6 @@
 // https://discord.js.org/#/docs/main/stable/class/Client?scrollTo=e-guildCreate
 const BaseEvent = require('../utils/structures/BaseEvent');
-const GuildConfig = require('../database/schemas/GuildConfig')
+const GuildConfig = require('../database/schemas/GuildConfig');
 
 module.exports = class GuildCreateEvent extends BaseEvent {
  constructor() {
@@ -8,9 +8,10 @@ module.exports = class GuildCreateEvent extends BaseEvent {
   }
   
   async run(client, guild) { 
-    const guildConfig = await GuildConfig.create({
+    await GuildConfig.create({
       guildId: guild.id,
+      name: guild.name,
+      icon: guild.icon,
     });
-    client.guildcache.set()
   }
 }
